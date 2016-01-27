@@ -149,7 +149,7 @@ function windowSetup() {
 			var rect = canvas.getBoundingClientRect();
 			var changed = false;
 			ev.preventDefault();
-			if(altFunc(ev) && cam.mousemove(ev.clientX-rect.left, ev.clientY-rect.top)){
+			if(altFunc(ev) && dragging && cam.mousemove(ev.clientX-rect.left, ev.clientY-rect.top)){
 				changed = true;
 			} else if(!altFunc(ev) && dragging){
 				var mray = ray.New(ev.clientX-rect.left, ev.clientY-rect.top, canvas.clientWidth, canvas.clientHeight, cam.Position(), g.invProj, g.invView);
