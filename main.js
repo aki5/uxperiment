@@ -24,6 +24,8 @@ var g = {}; // globals
 var updateFunc = null;
 var cam = camera.New();
 cam.dist = 400;
+cam.yaw = Math.PI/3.0;
+cam.pitch = Math.PI/5.0;
 
 function loadShader(gl, shaderText, shaderType)
 {
