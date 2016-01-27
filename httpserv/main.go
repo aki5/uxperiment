@@ -30,10 +30,10 @@ type httpLog struct {
 	Host             string
 	Form             url.Values
 	PostForm         url.Values
+	Trailer          http.Header
+	RemoteAddr       string
+	RequestURI       string
 	//MultipartForm *multipart.Form
-	Trailer    http.Header
-	RemoteAddr string
-	RequestURI string
 }
 
 func (list *whiteList) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -88,7 +88,7 @@ func main() {
 	} else {
 		logFd = os.Stdout
 	}
-	err := http.ListenAndServe(":8080", http.StripPrefix("/", list))
+	err := http.ListenAndServe(*listenAddr, http.StripPrefix("/", list))
 	if err != nil {
 		panic(err)
 	}
