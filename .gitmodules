@@ -1,0 +1,3 @@
+[submodule "libgeom.js"]
+	path = libgeom.js
+	url = https://github.com/aki5/libgeom.js
