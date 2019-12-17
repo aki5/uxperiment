@@ -713,7 +713,8 @@
 			 *	depth buffer updates are disabled but depth testing is enabled beyond this point.
 			 */
 			gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.TEXTURE_2D, g.depthTex[drawPeel], 0);
-			gl.bindTexture(gl.TEXTURE_2D, g.depthTex[drawPeel]);
+			// it's an error to bind the texture you write to.
+			//gl.bindTexture(gl.TEXTURE_2D, g.depthTex[drawPeel]);
 			gl.depthMask(false);
 			gl.enable(gl.DEPTH_TEST);
 			gl.enable(gl.BLEND);
